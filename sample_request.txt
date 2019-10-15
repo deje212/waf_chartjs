@@ -1,0 +1,1 @@
+curl -d "param1=value1&param2=SELECT+host%2C+user%2C+password+FROM+mysql.user%3B+%E2%80%94+priv" -X POST  'http://localhost/index.html'
