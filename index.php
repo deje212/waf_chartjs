@@ -3,6 +3,7 @@
 <head>
 	<title>MODSEC</title>
 	<script type="text/javascript" src="chartjs/Chart.js"></script>
+        <meta http-equiv="refresh" content="30">
 </head>
 <body>
 	<style type="text/css">
@@ -14,16 +15,17 @@
 		margin: 0px auto;
 	}
 	</style>
+   <?php
+        include 'koneksi.php';
+        ?>
 
 
 	<center>
 		<h2>MODSEC - DATA </h2>
+		<h3>Number of Attacks :  <?php $OWASP_TOP_10 = mysqli_query($koneksi,"select * from alert where full_log like '%OWASP_TOP_10/%'");
+	echo mysqli_num_rows($OWASP_TOP_10);?></h3>
+		<h4><?php echo "Last Update :" . date("d-m-Y h:i:sa") . "<br>"; ?></h4>
 	</center>
-
-
-	<?php
-	include 'koneksi.php';
-	?>
 
 	<div style="width: 800px;margin: 0px auto;">
 		<canvas id="myChart"></canvas>
@@ -98,4 +100,3 @@
 	</script>
 </body>
 </html>
-
